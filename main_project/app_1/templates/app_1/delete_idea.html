@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body{
+        background-color: black;
+        
+    }
+
+    .box{
+        border: 3px solid #66b032d0;
+        border-radius: 16px;
+        box-shadow: 0 0 20px 0 #66B032 inset, 0 0 36px 4px #66B032;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -300px;
+        margin-left: -404px;
+        width: 800px;
+        height: 500px;
+    }
+
+    .title-name{
+        margin-top: 32px;
+        font-size: 40px;
+        color: #66B032;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .title{
+        margin-top: 120px;
+        color: seashell;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .button{
+        width: 170px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-left: 30px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        display: inline-block;
+
+        background-color: transparent;
+        border: 3px solid #66B032;
+        border-radius: 50px;
+        -webkit-transition: all .15s ease-in-out;
+        transition: all .15s ease-in-out;
+        color: #66B032;
+
+        text-decoration: none;
+    }
+
+    .button:hover {
+        box-shadow: 0 0 10px 0 #66B032 inset, 0 0 20px 2px #66B032;
+        border: 3px solid #66B032;
+    }
+
+    .button-cancel{
+        width: 164px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-left: 30px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        display: inline-block;
+
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: transparent;
+        border: 3px solid #66B032;
+        border-radius: 50px;
+        -webkit-transition: all .15s ease-in-out;
+        transition: all .15s ease-in-out;
+        color: #66B032;
+
+        text-decoration: none;
+    }
+
+    .button-cancel:hover {
+        box-shadow: 0 0 10px 0 #66B032 inset, 0 0 20px 2px #66B032;
+        border: 3px solid #66B032;
+    }
+
+    .buttons{
+        margin-top: 40px;
+        margin-left: 280px;
+    }
+
+</style>
+<body>
+
+    <div class="box">
+        <h1 class="title-name"> {{ item.title }} </h1>
+
+        <h1 class="title" >Are you sure about this ?</h1>
+    
+        <div class="buttons">
+            <form action="{% url 'idea_form_delete' item.id %}" method="POST">
+
+                {% csrf_token %}
+
+        
+                <input class="button" type="submit" value="DELETE" name="Confirm">
+            </form>
+        
+            <a class="button-cancel" href="{% url 'home' %}"> Cancel </a>
+        </div>
+    </div>
+    
+</body>
+</html>
