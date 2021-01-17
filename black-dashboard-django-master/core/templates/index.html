@@ -1,0 +1,164 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+  {% for field in temp %}
+  <style>
+    .mancare{
+      margin-right:16rem ;
+    }
+    @media(max-width:700px){
+      .mancare{
+        margin-right:6rem ;
+      }    
+    }
+  </style>
+  <div class="card">
+    <div class="mancare">
+      <a href="{% url 'idea_form' field.title %}">
+          <div class="card-body">
+            <style>
+              .information{
+                display: inline;
+              }
+            </style>
+            <div class="information">
+              <h4 class="card-title">{{field.title}}</h4>
+              <h4 >{{field.completion_rate}}%</h4>
+            </div>
+            
+            <div>
+                {{field.optimism_1}}
+            </div>
+            <style>
+              .bars{
+                width: 100%;
+                padding:0.4rem;
+              }
+    
+              .{{field.class_name}}#one{
+                  margin-top: 1rem;
+                  background: #2dce89;
+                  border-radius: 8px;
+                  height: 16px;
+                  width: {{field.grade_one}}%;
+                  
+              }
+    
+              .{{field.class_name}}#two{
+                  background: #1d8cf8;
+                  border-radius: 8px;
+                  height: 16px;
+                  width: {{field.grade_two}}%;
+              }
+    
+              .{{field.class_name}}#three{
+                  background:#fd5d93;
+                  border-radius: 8px;
+                  height: 16px;
+                  width: {{field.grade_three}}%;
+              }
+            </style>
+            <div class="bars">
+              <div class="{{field.class_name}}" id="one"></div>
+            </div>
+            
+            <div class="bars">
+              <div class={{field.class_name}} id="two"></div>
+            </div>
+    
+            <div class="bars">
+              <div class={{field.class_name}} id="three"></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    <a href="{% url 'idea_delete' field.title %}">
+      <div>
+        <style>
+          .delete_buton{
+            margin-top: -14.32rem;
+            width: 8rem;
+            height: 14.4rem;
+            float: right;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            background:  rgba(243, 95, 117, 0.7);
+          }
+
+          @media(max-width:700px){
+            .delete_buton{
+              width: 3rem;
+            }
+          }
+        </style>
+        <div class="delete_buton">
+          <style>
+            .delete_h4{
+              margin-top: 6.4rem;
+              text-align: center;
+            }
+
+            @media(max-width:700px){
+            .delete_h4{
+              font-size: 12px;
+            }
+          }
+
+          </style>
+          <h4 class="delete_h4">
+            DELETE
+          </h4>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'idea_view' field.title %}">
+      <div>
+        <style>
+          .Viewall_buton{
+            margin-top: -14.4rem;
+            margin-right: 8rem;
+            width: 8rem;
+            height: 14.4rem;
+            position: absolute;
+            right: 0;
+            background:  #1d8bf8b9;
+          }
+
+          @media(max-width:700px){
+            .Viewall_buton{
+              width: 3rem;
+              margin-right: 3rem;
+            }
+          }
+        </style>
+        <div class="Viewall_buton">
+          </style>
+          <h4 class="delete_h4">
+            VIEW All
+          </h4>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  {% endfor %}
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

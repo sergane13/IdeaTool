@@ -1,0 +1,52 @@
+{% extends "layouts/base.html" %}
+{% load widget_tweaks %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <form action="" method="POST">
+
+            {% csrf_token %}
+            <style>
+            .one{
+            flex: 0 0 25%;
+            max-width: 28%;
+            min-width: 20%;
+            }
+
+            .titlu{
+            font-size: 24px;  
+            }
+        </style>
+        <div class="one px-md-1">
+            <div class="form-group">
+            <label class="titlu">Title</label>
+            <h1> {{form.title|add_class:'form-control'}}</h1>
+            </div>
+            <div>
+                {% for message in messages%}
+                  <h5 class="message">{{message}} </h5>  
+                {% endfor %}
+            </div>
+        </div>
+        <input class="btn btn-fill btn-primary" type="submit" value="Create">
+    </form>
+    
+    
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

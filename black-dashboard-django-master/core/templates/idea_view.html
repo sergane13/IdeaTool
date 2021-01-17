@@ -1,0 +1,270 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <style>
+    .one{
+      flex: 0 0 25%;
+      max-width: 28%;
+      min-width: 20%;
+    }
+
+    .titlu{
+      font-size: 24px;  
+      }
+  </style>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="one px-md-1">
+        <div class="form-group">
+          <label class="titlu">Title</label>
+          <h4> {{idea.title}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="card">
+    <div class="card-body">
+      <style>
+        .two{
+          flex: 0 0 25%;
+          max-width: 48%;
+        }
+      </style>
+      <div class="two px-md-1">
+        <div class="form-group">
+          <label>Description</label>
+          <h4> {{idea.optimism_1}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-body">
+      <style>
+        .three{
+          flex: 0 0 25%;
+          max-width: 16%;
+        }
+      </style>
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade (Description)</label>
+          <h3>{{idea.optimism_1_grade}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <style>
+        .four{
+          flex: 0 0 25%;
+          max-width: 100%;
+        }
+      </style>
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>How did you come up with the idea?</label>
+          <h4> {{idea.optimism_2}} </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>How do you imagine the idea?</label>
+          <h4> {{idea.optimism_3}} </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>What problem do you wanna solve?</label>
+          <h4>  {{idea.neutralism_1}} </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade (What problem do you wanna solve?)</label>
+          <h3> {{idea.neutralism_1_grade}}</h3>
+        </div>
+      </div>    
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>Who has this problem? (#2)</label>
+          <h4>  {{idea.neutralism_2}} </h4>
+        </div>
+      </div>    
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <style>
+        .five{
+          flex: 0 0 25%;
+          max-width: 16%;
+        }
+      </style>
+      <div class="five px-md-1">
+        <div class="form-group">
+          <label>Estimated number of people (#2) </label>
+          <h3>  {{idea.neutralism_2_number}} </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>Moments when this problem occur (#2)</label>
+          <h3>  {{idea.neutralism_2_moments}} </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="five px-md-1">
+        <div class="form-group">
+          <label>How often this idea occur? (#2)</label>
+          <h4>  {{idea.neutralism_2_times}} </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade (#2)</label>
+          <h3> {{idea.neutralism_2_grade}} </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label> How important is the problem? (#3)</label>
+          <h4> {{idea.neutralism_3}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-body">
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade (#3)</label>
+          <h3> {{idea.neutralism_3_grade}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>How capable is the team? </label>
+          <h4> {{idea.neutralism_4_team}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>What is wrong with the idea? (#4)</label>
+          <h4> {{idea.pessimism_1}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade (#4) </label>
+          <h3> {{idea.pessimism_1_grade}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>What are the reasons for this idea to fail? (#5)</label>
+          <h4> {{idea.pessimism_2}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade (#5)</label>
+          <h3> {{idea.pessimism_2_grade}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}
