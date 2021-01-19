@@ -14,6 +14,7 @@ from django.forms.utils import ErrorList
 from django.http import HttpResponse
 from .forms import LoginForm, SignUpForm
 
+
 def login_view(request):
     form = LoginForm(request.POST or None)
 
@@ -35,9 +36,10 @@ def login_view(request):
 
     return render(request, "accounts/login.html", {"form": form, "msg" : msg})
 
+
 def register_user(request):
 
-    msg     = None
+    msg = None
     success = False
 
     if request.method == "POST":
@@ -48,7 +50,7 @@ def register_user(request):
             raw_password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=raw_password)
 
-            msg     = 'User created.'
+            msg = 'User created.'
             success = True
             
             #return redirect("/login/")
