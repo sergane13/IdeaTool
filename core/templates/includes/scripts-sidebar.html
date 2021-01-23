@@ -52,30 +52,6 @@
           }
         });
 
-        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
-          var $btn = $(this);
-
-          if (sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            sidebar_mini_active = false;
-            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
-          } else {
-            $('body').addClass('sidebar-mini');
-            sidebar_mini_active = true;
-            blackDashboard.showSidebarMessage('Sidebar mini activated...');
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-        });
-
         $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
 
@@ -86,7 +62,10 @@
               $('body').removeClass('change-background');
               $('body').removeClass('white-content');
             }, 900);
+
             white_color = false;
+            document.cookie = "color=" + white_color;
+
           } else {
 
             $('body').addClass('change-background');
@@ -96,6 +75,7 @@
             }, 900);
 
             white_color = true;
+            document.cookie = "color=" + white_color;
           }
 
 
@@ -103,11 +83,25 @@
 
         $('.light-badge').click(function() {
           $('body').addClass('white-content');
+          document.cookie = "color=white";
         });
 
         $('.dark-badge').click(function() {
           $('body').removeClass('white-content');
+          document.cookie = "color=black";
         });
+
+        var allcookies = document.cookie;
+        cookiearray = allcookies.split(';');
+        value = cookiearray[1].split('=')[1];
+
+        if (value === 'white')
+        {
+          $('body').addClass('white-content');
+        }
+        else{
+          $('body').remove('white-content');
+        }
       });
     });
   </script>

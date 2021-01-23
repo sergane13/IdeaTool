@@ -110,3 +110,12 @@ def idea_view(request, title):
         'idea': idea
     }
     return render(request, 'idea_view.html', context)
+
+'''
+def cookies_are_life(request):
+    color = ''
+    if 'bk-color' in request.COOKIES:
+        color = request.COOKIES['bk-color']
+
+    return color
+'''
