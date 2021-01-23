@@ -92,16 +92,15 @@
         });
 
         var allcookies = document.cookie;
-        cookiearray = allcookies.split(';');
-        value = cookiearray[1].split('=')[1];
-
-        console.log(value)
-        if (value === 'white')
+        var n = allcookies.search("white")
+        
+        console.log(n)
+        if (n === -1)
         {
-          $('body').addClass('white-content');
+          $('body').remove('white-content');
         }
         else{
-          $('body').remove('white-content');
+          $('body').addClass('white-content');
         }
       });
     });
