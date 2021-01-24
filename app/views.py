@@ -111,6 +111,7 @@ def idea_view(request, title):
     }
     return render(request, 'idea_view.html', context)
 
+
 '''
 def cookies_are_life(request):
     color = ''
