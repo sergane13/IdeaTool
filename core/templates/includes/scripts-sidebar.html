@@ -29,28 +29,99 @@
           }
         });
 
+
+        /* Jquery async event that changes sidebar color in blue/pink/green */
+        //   |    |
+        //   |    |
+        //   V    V
+
         $('.fixed-plugin .background-color span').click(function() {
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
 
           var new_color = $(this).data('color');
+          document.cookie = "bar_color=" + new_color + "; path=/";
 
+          activation_color(new_color);
+         
+        });
+
+        //   W    W
+        //   |    |
+        //   |    |
+
+        //######################################################################
+
+        /* function that activates the chosen color */
+        //   |    |
+        //   |    |
+        //   V    V
+
+        function activation_color(color){
           if ($sidebar.length != 0) {
-            $sidebar.attr('data', new_color);
+            $sidebar.attr('data', color);
           }
 
           if ($main_panel.length != 0) {
-            $main_panel.attr('data', new_color);
+            $main_panel.attr('data', color);
           }
 
           if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
+            $full_page.attr('filter-color', color);
           }
 
           if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data', new_color);
+            $sidebar_responsive.attr('data', color);
           }
-        });
+        }
+
+        //   W    W
+        //   |    |
+        //   |    |
+
+        //######################################################################
+
+        /* Get cookies and find what color has been chosen + mantain the color*/
+        //   |    |
+        //   |    |
+        //   V    V
+
+        var allcookies = document.cookie;
+
+        var green_color = allcookies.search("green");
+        green_color_1 = true_false_cnverter(green_color);
+
+        var pink_color = allcookies.search("pink");
+        pink_color_1 = true_false_cnverter(pink_color);
+
+        var blue_color = allcookies.search("blue");
+        blue_color_1 = true_false_cnverter(blue_color);
+
+
+        function true_false_cnverter(color)
+        {
+          if (color > -1){
+            return true;
+          }
+          else{
+            return false;
+          }
+        }
+
+        if (green_color_1 === true){
+          activation_color("green");
+        }
+        else if (pink_color_1 === true){
+          activation_color("pink");
+        }
+        else if (blue_color_1 === true){
+          activation_color("blue");
+        }
+        
+        //   W    W
+        //   |    |
+        //   |    |
+
 
         $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
@@ -64,9 +135,8 @@
             }, 900);
 
             white_color = false;
-            document.cookie = "color=" + white_color;
-
-          } else {
+          } 
+          else {
 
             $('body').addClass('change-background');
             setTimeout(function() {
@@ -75,33 +145,41 @@
             }, 900);
 
             white_color = true;
-            document.cookie = "color=" + white_color;
           }
 
 
         });
 
+        //######################################################################
+
+        /* All code below is responsible for main theme color (black/ white) and its persistance */
+        //   |    |
+        //   |    |
+        //   V    V
+
         $('.light-badge').click(function() {
           $('body').addClass('white-content');
-          document.cookie = "color=white";
+          document.cookie = "color=white; path=/";
         });
 
         $('.dark-badge').click(function() {
           $('body').removeClass('white-content');
-          document.cookie = "color=black";
+          document.cookie = "color=black; path=/";
         });
 
-        var allcookies = document.cookie;
-        var n = allcookies.search("white")
+        var main_color = allcookies.search("white");
         
-        console.log(n)
-        if (n === -1)
+        if (main_color === -1)
         {
           $('body').remove('white-content');
         }
         else{
           $('body').addClass('white-content');
         }
+
+        //   W    W
+        //   |    |
+        //   |    |
       });
     });
   </script>
