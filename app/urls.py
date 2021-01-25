@@ -17,4 +17,8 @@ urlpatterns = [
     path('idea_delete/<str:title>', views.idea_delete, name='idea_delete'),
     path('idea_create', views.idea_create, name='idea_create'),
     path('idea_view/<str:title>', views.idea_view, name='idea_view'),
+    path('charge/<str:amount>', views.charge, name="charge"),
+    path('payment_offers', views.payment_offers, name='offers'),
+    path('payment/<str:amount>', views.payment, name='payment'),
+    path('payment_successful', views.successful, name='payment_successful'),
 ]

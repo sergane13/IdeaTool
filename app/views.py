@@ -11,6 +11,10 @@ from django.http import HttpResponse
 from django import template
 from .forms import *
 from django.contrib import messages
+from django.urls import reverse
+import stripe
+
+stripe.api_key = 'sk_test_51IDRYEHkebrglgsgXHP1dECWUjp46cERZfS0Vp0H2VRzttjEbpW25TB7sbpkN5WFnTr3XbKEcrQuPuLMWlWeQA7G00R2OB0LKe'
 
 
 @login_required(login_url="/login/")
@@ -112,11 +116,41 @@ def idea_view(request, title):
     return render(request, 'idea_view.html', context)
 
 
-'''
-def cookies_are_life(request):
-    color = ''
-    if 'bk-color' in request.COOKIES:
-        color = request.COOKIES['bk-color']
+@login_required(login_url='login')
+def payment_offers(request):
+    return render(request, 'payments/offers_page.html')
 
-    return color
-'''
+
+@login_required(login_url='login')
+def payment(request, amount):
+    context = {
+        'amount': amount
+    }
+    return render(request, 'payments/payment_page.html', context)
+
+
+@login_required(login_url='login')
+def successful(request):
+    return render(request, 'payments/success.html')
+
+
+@login_required(login_url='login')
+def charge(request, amount):
+
+    if request.method == 'POST':
+
+        total_cash = int(round(float(amount)))
+
+        customer = stripe.Customer.create(
+            name=request.POST['nickname'],
+            email=request.user.email,
+            source=request.POST['stripeToken'],
+        )
+
+        stripe.Charge.create(
+            customer=customer,
+            amount=total_cash * 100,
+            currency='usd',
+            description='Standard subscription'
+        )
+    return redirect(reverse('payment_successful'))

@@ -1,0 +1,82 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Login {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<style>
+    .row{
+        display: table;
+        width: 100%; /*Optional*/
+        table-layout: fixed; /*Optional*/
+        border-spacing: 10px; /*Optional*/
+    }
+
+    #payment_standard{
+        display: table-cell;
+        border: 3px solid #e14eca;
+        width: 33%;
+        text-align: center;
+    }
+
+    #payment_premium{
+        display: table-cell;
+        border: 3px solid #1d8cf8;
+        width: 33%;
+        text-align: center;
+    }
+
+    #payment_royal{
+        display: table-cell;
+        border: 3px solid #00f2c3;
+        width: 33%;
+        text-align: center;
+    }
+</style>
+
+<div class="row">
+
+    <div class="card" id="payment_standard">
+        <a href="{% url 'payment' 4.95 %}">
+            <div class="card-body">
+                <h1> Standard </h1>
+                <h3>$4.95</h3>
+
+                <style>
+                    .information{
+                        float: left;
+                    }
+                </style>
+            </div>
+        </a>
+    </div>
+    
+    
+    <div class="card" id="payment_premium">
+        <a href="{% url 'payment' 7.95 %}">
+            <div class="card-body">
+                <h1> Premium </h1>
+                <h3>$7.95</h3>
+            </div>
+        </a>
+    </div>
+    
+
+    <div class="card" id="payment_royal">
+        <a href="{% url 'payment' 9.95 %}">
+            <div class="card-body">
+                <h1> Royal </h1>
+                <h3>$9.95</h3>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
