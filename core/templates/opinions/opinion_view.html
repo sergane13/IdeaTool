@@ -40,6 +40,15 @@
         <h1>  {{form.opinion|add_class:'form-control'}} </h1>
         </div>
     </div>
+
+    <style>
+      .hide{
+        display: none;
+      }
+    </style>
+    
+    {{form.idea_opinion|add_class:'hide'}}
+   
     </div>
 </div>
   <input class="btn btn-fill btn-primary" type="submit" value="Update">

@@ -196,16 +196,9 @@ def opinion_view(request, title, opinion):
 
     if request.method == 'POST':
         form = CreateOpinionForm(request.POST, instance=temp)
+
         if form.is_valid():
-
-            name = request.POST.get("name")
-            opinion = request.POST.get("opinion")
-
-            Opinions.objects.filter(name=opinion, idea_opinion=idea).update(
-                name=name,
-                opinion=opinion,
-            )
-
+            form.save()
             return redirect('home')
 
     context = {
