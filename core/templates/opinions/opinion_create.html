@@ -39,10 +39,18 @@
             <h1>  {{form.opinion|add_class:'form-control'}} </h1>
             </div>
         </div>
+        
+        <div>
+            {% for message in messages%}
+              <h4 class="message">{{message}} </h4>  
+            {% endfor %}
+        </div>
+        
         </div>
     </div>
 <input class="btn btn-fill btn-primary" type="submit" value="Create">
 </form>
+
 
 
 {% endblock content %}

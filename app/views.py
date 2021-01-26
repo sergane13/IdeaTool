@@ -168,15 +168,22 @@ def opinion_create(request, title):
     if request.method == 'POST':
 
         name = request.POST.get('name')
-        description = request.POST.get('opinion')
-        opinion = Idea.objects.get(title=title)
+        temp = Opinions.objects.filter(name=name).count()
 
-        Opinions.objects.create(
-            name=name,
-            opinion=description,
-            idea_opinion=opinion,
-        )
-        return redirect('home')
+        if not temp and name is not '':
+            description = request.POST.get('opinion')
+            opinion = Idea.objects.get(title=title)
+
+            Opinions.objects.create(
+                name=name,
+                opinion=description,
+                idea_opinion=opinion,
+            )
+            return redirect('home')
+        elif name is '':
+            messages.info(request, 'Opinion must have user')
+        else:
+            messages.info(request, 'This user already has an opinion')
 
     context = {
         'form': form,
@@ -189,17 +196,22 @@ def opinion_view(request, title, opinion):
 
     idea = Idea.objects.get(title=title)
     temp = Opinions.objects.get(name=opinion, idea_opinion=idea)
-
     main_name = temp.name
-
     form = CreateOpinionForm(instance=temp)
 
     if request.method == 'POST':
         form = CreateOpinionForm(request.POST, instance=temp)
 
-        if form.is_valid():
+        name = request.POST.get('name')
+        temp = Opinions.objects.filter(name=name).count()
+
+        if form.is_valid() and not temp and name is not '':
             form.save()
             return redirect('home')
+        elif name is '':
+            messages.info(request, 'Opinion must have user')
+        else:
+            messages.info(request, 'This user already has an opinion')
 
     context = {
         'form': form,

@@ -41,6 +41,12 @@
         </div>
     </div>
 
+    <div>
+      {% for message in messages%}
+        <h3 class="message">{{message}} </h3>  
+      {% endfor %}
+    </div>
+
     <style>
       .hide{
         display: none;
@@ -48,12 +54,13 @@
     </style>
     
     {{form.idea_opinion|add_class:'hide'}}
-   
+    
     </div>
 </div>
   <input class="btn btn-fill btn-primary" type="submit" value="Update">
   <a class="btn btn-fill btn-primary" href="{% url 'opinion_delete' title main_name %}">Delete</a>
 </form>
+
 
 {% endblock content %}
 
