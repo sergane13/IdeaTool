@@ -133,3 +133,16 @@ class Idea(models.Model):
 
     objects = models.Manager()
 
+
+class Opinions(models.Model):
+
+    name = models.CharField(max_length=20, null=True, blank=True)
+
+    opinion = models.TextField(null=True, blank=True)
+
+    idea_opinion = models.ForeignKey(
+        Idea,
+        on_delete=models.CASCADE,
+    )
+
+    objects = models.Manager()

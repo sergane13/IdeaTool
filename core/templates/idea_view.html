@@ -7,6 +7,7 @@
 
 {% block content %}
 
+<h1> Idea details </h1>
   <style>
     .one{
       flex: 0 0 25%;
@@ -253,6 +254,33 @@
       </div>
     </div>
   </div>
+
+  <h1> Opinions </h1>
+
+  <style>
+    .rows_opinions{
+      margin-top: 2rem;
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, 20rem);
+    }
+    
+    #opinion{
+      width: 20rem;
+      text-align: center;
+    }
+  </style>
+
+<div class="rows_opinions">
+  {% for opinion in opinions %}
+    <div class="card" id="opinion">
+        <div class="card-body" >
+          <h3>{{opinion.name}}</h3>
+          <h4>{{opinion.opinion}}</h4>
+        </div>
+    </div>
+  {% endfor %}
+</div>
 
 {% endblock content %}
 

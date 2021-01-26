@@ -186,7 +186,42 @@
   </div>
   <input class="btn btn-fill btn-primary" type="submit" value="Update">
 </form>
-    
+
+<style>
+  #add_user{
+    margin-top: 3rem;
+  }
+</style>
+<a class="btn btn-fill btn-primary" id="add_user" href="{% url 'opinion_create' title %}">Add people opinion</a>
+
+<style>
+  .rows_opinions{
+    margin-top: 2rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 20rem);
+  }
+  
+  #opinion{
+    width: 20rem;
+    height: 4rem;
+    text-align: center;
+  }
+</style>
+
+<div class="rows_opinions">
+  {% for opinion in opinions %}
+  <div class="card" id="opinion">
+    <a href="{% url 'opinion_view' title opinion.name %}">
+      <div class="card-body" >
+        <h3>{{opinion.name}}</h3>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->

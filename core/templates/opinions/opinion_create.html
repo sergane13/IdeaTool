@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+{% load widget_tweaks %}
+
+{% block title %} Login {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+    <div class="card">
+        <div class="card-body">
+            <h2>Customer opinion</h2>
+            <style>
+                .two{
+                    flex: 0 0 25%;
+                    max-width: 48%;
+                }
+        
+                .four{
+                    flex: 0 0 25%;
+                    max-width: 100%;
+                }
+            </style>
+        
+        <div class="two px-md-1">
+            <div class="form-group">
+            <label>Name of the user</label>
+            <h1> {{form.name|add_class:'form-control'}}</h1>
+            </div>
+        </div>
+        
+        <div class="four px-md-1">
+            <div class="form-group">
+            <label>Description </label>
+            <h1>  {{form.opinion|add_class:'form-control'}} </h1>
+            </div>
+        </div>
+        </div>
+    </div>
+<input class="btn btn-fill btn-primary" type="submit" value="Create">
+</form>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

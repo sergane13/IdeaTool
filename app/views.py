@@ -17,6 +17,11 @@ import stripe
 stripe.api_key = 'sk_test_51IDRYEHkebrglgsgXHP1dECWUjp46cERZfS0Vp0H2VRzttjEbpW25TB7sbpkN5WFnTr3XbKEcrQuPuLMWlWeQA7G00R2OB0LKe'
 
 
+"""
+index ---> main page with all the 'Idea' objects
+"""
+
+
 @login_required(login_url="/login/")
 def index(request):
     temp = Idea.objects.all()
@@ -24,6 +29,11 @@ def index(request):
         'temp': temp,
     }
     return render(request, "index.html", context)
+
+
+"""
+error pages
+"""
 
 
 @login_required(login_url="/login/")
@@ -39,46 +49,25 @@ def pages(request):
         
     except template.TemplateDoesNotExist:
 
-        html_template = loader.get_template( 'error-404.html' )
+        html_template = loader.get_template('error-404.html')
         return HttpResponse(html_template.render(context, request))
 
     except:
-    
-        html_template = loader.get_template( 'error-500.html' )
+
+        html_template = loader.get_template('error-500.html')
         return HttpResponse(html_template.render(context, request))
 
 
-@login_required(login_url="/login/")
-def idea_form(request, title):
+"""
 
-    idea = Idea.objects.get(title=title)
-    form = CreateIdeaForm(instance=idea)
+Idea functions
 
-    if request.method == 'POST':
-        form = CreateIdeaForm(request.POST, instance=idea)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
+1.idea_create ---> create the 'Idea' object
+2.idea_form ---> modify the 'Idea' object
+3.idea_view ---> view the 'Idea' object
+4.idea_delete ---> delete the 'Idea' object
 
-    context = {
-        'form': form
-    }
-    return render(request, 'idea_form.html', context)
-
-
-@login_required(login_url='login')
-def idea_delete(request, title):
-
-    idea = Idea.objects.get(title=title)
-
-    if request.method == 'POST':
-        idea.delete()
-        return redirect('home')
-
-    context = {
-        'item': idea
-    }
-    return render(request, 'idea_delete.html', context)
+"""
 
 
 @login_required(login_url='login')
@@ -106,14 +95,155 @@ def idea_create(request):
     return render(request, 'idea_form_create.html', context)
 
 
+@login_required(login_url="/login/")
+def idea_form(request, title):
+
+    idea = Idea.objects.get(title=title)
+    opinions = Opinions.objects.filter(idea_opinion=idea)
+
+    form = CreateIdeaForm(instance=idea)
+
+    if request.method == 'POST':
+        form = CreateIdeaForm(request.POST, instance=idea)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    context = {
+        'form': form,
+        'title': title,
+        'opinions': opinions,
+    }
+    return render(request, 'idea_form.html', context)
+
+
 @login_required(login_url='login')
 def idea_view(request, title):
     idea = Idea.objects.get(title=title)
+    opinions = Opinions.objects.filter(idea_opinion=idea)
 
     context = {
-        'idea': idea
+        'idea': idea,
+        'opinions': opinions,
     }
     return render(request, 'idea_view.html', context)
+
+
+@login_required(login_url='login')
+def idea_delete(request, title):
+
+    idea = Idea.objects.get(title=title)
+
+    if request.method == 'POST':
+        idea.delete()
+        return redirect('home')
+
+    context = {
+        'item': idea
+    }
+    return render(request, 'idea_delete.html', context)
+
+
+"""
+
+########################END IDEA FUNCTIONS##############################
+
+"""
+
+"""
+
+Opinion functions
+
+1.opinion_create ---> create the 'Opinions' object
+2.opinion_view ---> view the 'Idea' object
+3.opinion_delete ---> delete the 'Opinions' object
+
+"""
+
+
+@login_required(login_url='login')
+def opinion_create(request, title):
+
+    form = CreateOpinionForm()
+    if request.method == 'POST':
+
+        name = request.POST.get('name')
+        description = request.POST.get('opinion')
+        opinion = Idea.objects.get(title=title)
+
+        Opinions.objects.create(
+            name=name,
+            opinion=description,
+            idea_opinion=opinion,
+        )
+        return redirect('home')
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'opinions/opinion_create.html', context)
+
+
+@login_required(login_url='login')
+def opinion_view(request, title, opinion):
+
+    idea = Idea.objects.get(title=title)
+    temp = Opinions.objects.get(name=opinion, idea_opinion=idea)
+
+    main_name = temp.name
+
+    form = CreateOpinionForm(instance=temp)
+
+    if request.method == 'POST':
+        form = CreateOpinionForm(request.POST, instance=temp)
+        if form.is_valid():
+
+            name = request.POST.get("name")
+            opinion = request.POST.get("opinion")
+
+            Opinions.objects.filter(name=opinion, idea_opinion=idea).update(
+                name=name,
+                opinion=opinion,
+            )
+
+            return redirect('home')
+
+    context = {
+        'form': form,
+        'title': title,
+        'main_name': main_name,
+    }
+    return render(request, 'opinions/opinion_view.html', context)
+
+
+@login_required(login_url='login')
+def opinion_delete(request, title, opinion):
+
+    temp = Idea.objects.get(title=title)
+    idea = Opinions.objects.get(name=opinion, idea_opinion=temp)
+
+    if request.method == 'POST':
+        idea.delete()
+        return redirect('home')
+
+    context = {
+        'item': idea,
+        'title': title,
+    }
+    return render(request, 'opinions/opinion_delete.html', context)
+
+
+"""
+
+########################END OPINIONS FUNCTIONS##############################
+
+"""
+
+"""
+
+Payment
+
+"""
 
 
 @login_required(login_url='login')
