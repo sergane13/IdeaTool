@@ -19,7 +19,7 @@
   </style>
   <div class="card">
     <div class="mancare">
-      <a href="{% url 'idea_form' field.title %}">
+      <a href="{% url 'idea_view' field.title %}">
           <div class="card-body">
             <style>
               .information{
@@ -116,7 +116,7 @@
         </div>
       </div>
     </a>
-    <a href="{% url 'idea_view' field.title %}">
+    <a href="{% url 'idea_form' field.title %}">
       <div>
         <style>
           .Viewall_buton{
@@ -139,7 +139,7 @@
         <div class="Viewall_buton">
           </style>
           <h4 class="delete_h4">
-            VIEW All
+            EDIT
           </h4>
         </div>
       </div>
