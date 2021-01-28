@@ -46,7 +46,7 @@ class Idea(models.Model):
             return self.title
 
     # Describe the idea in 20-25 words
-    optimism_1 = models.CharField(max_length=75, null=True, blank=True)
+    optimism_1 = models.CharField(max_length=300, null=True, blank=True)
 
     optimism_1_grade = models.CharField(max_length=2, null=True, default='0', blank=True, choices=GRADES)
 
