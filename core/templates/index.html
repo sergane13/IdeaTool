@@ -8,10 +8,6 @@
 {% block content %}
 
 <style>
-  :root{
-    --show_settings: none;
-  }
-
   .rows_opinions{
     display: grid;
     justify-content: center;
@@ -26,15 +22,8 @@
 
 </style>
 
-<script>
-  varisHovered = $('#idea').is(":hover");
-  if(varisHovered){
-    document.documentElement.style.setProperty('--show_settings', 'block');
-  }
-</script>
 <div class="rows_opinions">
   {% for field in temp %}
-
   <div class="card" id="idea">
     <div class="mancare">
       <a href="{% url 'idea_view' field.title %}">
@@ -111,7 +100,6 @@
     <a class="delete_container" href="{% url 'idea_delete' field.title %}">
       <style>
         .delete_buton{
-          display: var(--show_settings);
           width: 2rem;
           height:2.4rem;
           float: right;
@@ -135,7 +123,6 @@
       <div>
         <style>
           .edit{
-            display: var(--show_settings);
             margin-top: -2.4rem;
             margin-right: 8rem;
             width: 2rem;
