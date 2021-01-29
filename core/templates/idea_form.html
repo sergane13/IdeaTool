@@ -13,245 +13,267 @@
   {% csrf_token %}
 
   <style>
-    .one{
-      flex: 0 0 25%;
-      max-width: 28%;
-      min-width: 20%;
+    .main_div{
+      position: relative;
+      width: 56%;
+      left: 21%;
     }
+  </style>
 
-    .titlu{
-      font-size: 24px;  
+  <div class="main_div">
+    <div class="card">
+      <div class="card-body">
+        <style>
+          .one{
+            flex: 0 0 25%;
+            max-width: 38%;
+            min-width: 30%;
+          }
+      
+          .titlu{
+            font-size: 44px;  
+            }
+        </style>
+        <div class="one px-md-1">
+          <div class="form-group">
+            <label class="titlu">Title</label>
+            <h1> {{form.title|add_class:'form-control'}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <style>
+      .two{
+        flex: 0 0 25%;
+        max-width: 100%;
       }
-  </style>
-  <div class="one px-md-1">
-    <div class="form-group">
-      <label class="titlu">Title</label>
-      <h1> {{form.title|add_class:'form-control'}}</h1>
-    </div>
-  </div>
-
-  <style>
-    .two{
-      flex: 0 0 25%;
-      max-width: 50%;
-    }
-  </style>
-
-  <div class="card">
-    <div class="card-body">
-      <div class="two px-md-1">
-        <div class="form-group">
-          <label>Description</label>
-          <h1> {{form.optimism_1|add_class:'form-control'}}</h1>
-        </div>
-      </div>
-    
-      <style>
-        .three{
-          flex: 0 0 25%;
-          max-width: 16%;
-        }
-    
-        .form-control *{
-          color: rgba(0, 0, 0, 0.8);
-        }
-    
-      </style>
-      <div class="three px-md-1">
-        <div class="form-group">
-          <label>Grade</label>
-          <h1>{{form.optimism_1_grade|add_class:'form-control'}}</h1>
-        </div>
-      </div>
-    </div>
-  </div>
+    </style>
   
+    <div class="card">
+      <div class="card-body">
+        <div class="two px-md-1">
+          <div class="form-group">
+            <label>Description</label>
+            <h1> {{form.optimism_1|add_class:'form-control'}}</h1>
+          </div>
+        </div>
+      
+        <style>
+          .three{
+            flex: 0 0 25%;
+            max-width: 16%;
+          }
+      
+          .form-control *{
+            color: rgba(0, 0, 0, 0.8);
+          }
+      
+        </style>
+        <div class="three px-md-1">
+          <div class="form-group">
+            <label>Grade</label>
+            <h1>{{form.optimism_1_grade|add_class:'form-control'}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      .four{
+        flex: 0 0 25%;
+        max-width: 100%;
+      }
+    </style>
   
-  <style>
-    .four{
-      flex: 0 0 25%;
-      max-width: 100%;
-    }
-  </style>
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label>How did you come up with the idea?</label>
-      <h1> {{form.optimism_2|add_class:'form-control'}} </h1>
-    </div>
-  </div>
-
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label>How do you imagine the idea?</label>
-      <h1> {{form.optimism_3|add_class:'form-control'}} </h1>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <div class="four px-md-1">
-        <div class="form-group">
-          <label>What problem do you wanna solve?</label>
-          <h1>  {{form.neutralism_1|add_class:'form-control'}} </h1>
-        </div>
-      </div>
-    
-      <div class="three px-md-1">
-        <div class="form-group">
-          <label>Grade</label>
-          <h1> {{form.neutralism_1_grade|add_class:'form-control'}}</h1>
+    <div class="card">
+      <div class="card-body">
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label>How did you come up with the idea?</label>
+            <h1> {{form.optimism_2|add_class:'form-control'}} </h1>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   
-
-  <div class="card">
-    <div class="card-body">
-      <div class="four px-md-1">
-        <div class="form-group">
-          <label>Who has this problem?</label>
-          <h1>  {{form.neutralism_2|add_class:'form-control'}} </h1>
-        </div>
-      </div>
-    
-      <style>
-        .five{
-          flex: 0 0 25%;
-          max-width: 16%;
-        }
-      </style>
-      <div class="five px-md-1">
-        <div class="form-group">
-          <label>Estimated number of people </label>
-          <h1>  {{form.neutralism_2_number|add_class:'form-control'}} </h1>
-        </div>
-      </div>
-    
-      <div class="four px-md-1">
-        <div class="form-group">
-          <label>Moments when this problem occur</label>
-          <h1>  {{form.neutralism_2_moments|add_class:'form-control'}} </h1>
-        </div>
-      </div>
-    
-      <div class="five px-md-1">
-        <div class="form-group">
-          <label>How often this idea occur? </label>
-          <h1>  {{form.neutralism_2_times|add_class:'form-control'}} </h1>
-        </div>
-      </div>
-    
-      <div class="three px-md-1">
-        <div class="form-group">
-          <label>Grade</label>
-          <h1> {{form.neutralism_2_grade|add_class:'form-control'}} </h1>
+    <div class="card">
+      <div class="card-body">
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label>How do you imagine the idea?</label>
+            <h1> {{form.optimism_3|add_class:'form-control'}} </h1>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    
+    <div class="card">
+      <div class="card-body">
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label>What problem do you wanna solve?</label>
+            <h1>  {{form.neutralism_1|add_class:'form-control'}} </h1>
+          </div>
+        </div>
+      
+        <div class="three px-md-1">
+          <div class="form-group">
+            <label>Grade</label>
+            <h1> {{form.neutralism_1_grade|add_class:'form-control'}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-body">
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label>Who has this problem?</label>
+            <h1>  {{form.neutralism_2|add_class:'form-control'}} </h1>
+          </div>
+        </div>
+      
+        <style>
+          .five{
+            flex: 0 0 25%;
+            max-width: 16%;
+          }
+        </style>
+        <div class="five px-md-1">
+          <div class="form-group">
+            <label>Estimated number of people </label>
+            <h1>  {{form.neutralism_2_number|add_class:'form-control'}} </h1>
+          </div>
+        </div>
+      
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label>Moments when this problem occur</label>
+            <h1>  {{form.neutralism_2_moments|add_class:'form-control'}} </h1>
+          </div>
+        </div>
+      
+        <div class="five px-md-1">
+          <div class="form-group">
+            <label>How often this idea occur? </label>
+            <h1>  {{form.neutralism_2_times|add_class:'form-control'}} </h1>
+          </div>
+        </div>
+      
+        <div class="three px-md-1">
+          <div class="form-group">
+            <label>Grade</label>
+            <h1> {{form.neutralism_2_grade|add_class:'form-control'}} </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-body">
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label> How important is the problem?</label>
+            <h1> {{form.neutralism_3|add_class:'form-control'}}</h1>
+          </div>
+        </div>
+      
+        <div class="three px-md-1">
+          <div class="form-group">
+            <label>Grade</label>
+            <h1> {{form.neutralism_3_grade|add_class:'form-control'}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-body">
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label>How capable is the team? </label>
+            <h1> {{form.neutralism_4_team|add_class:'form-control'}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
   
-
-  <div class="card">
-    <div class="card-body">
-      <div class="four px-md-1">
-        <div class="form-group">
-          <label> How important is the problem?</label>
-          <h1> {{form.neutralism_3|add_class:'form-control'}}</h1>
+    <div class="card">
+      <div class="card-body">
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label>What is wrong with the idea?</label>
+            <h1> {{form.pessimism_1|add_class:'form-control'}}</h1>
+          </div>
         </div>
-      </div>
-    
-      <div class="three px-md-1">
-        <div class="form-group">
-          <label>Grade</label>
-          <h1> {{form.neutralism_3_grade|add_class:'form-control'}}</h1>
+      
+        <div class="three px-md-1">
+          <div class="form-group">
+            <label>Grade</label>
+            <h1> {{form.pessimism_1_grade|add_class:'form-control'}}</h1>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   
-
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label>How capable is the team? </label>
-      <h1> {{form.neutralism_4_team|add_class:'form-control'}}</h1>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <div class="four px-md-1">
-        <div class="form-group">
-          <label>What is wrong with the idea?</label>
-          <h1> {{form.pessimism_1|add_class:'form-control'}}</h1>
+    <div class="card">
+      <div class="card-body">
+        <div class="four px-md-1">
+          <div class="form-group">
+            <label>What are the reasons for this idea to fail?</label>
+            <h1> {{form.pessimism_2|add_class:'form-control'}}</h1>
+          </div>
         </div>
-      </div>
-    
-      <div class="three px-md-1">
-        <div class="form-group">
-          <label>Grade</label>
-          <h1> {{form.pessimism_1_grade|add_class:'form-control'}}</h1>
+      
+        <div class="three px-md-1">
+          <div class="form-group">
+            <label>Grade</label>
+            <h1> {{form.pessimism_2_grade|add_class:'form-control'}}</h1>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <div class="four px-md-1">
-        <div class="form-group">
-          <label>What are the reasons for this idea to fail?</label>
-          <h1> {{form.pessimism_2|add_class:'form-control'}}</h1>
-        </div>
-      </div>
-    
-      <div class="three px-md-1">
-        <div class="form-group">
-          <label>Grade</label>
-          <h1> {{form.pessimism_2_grade|add_class:'form-control'}}</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  
   <input class="btn btn-fill btn-primary" type="submit" value="Update">
+  </div>
 </form>
 
-
-<style>
-  #add_user{
-    margin-top: 3rem;
-  }
-</style>
-<a class="btn btn-fill btn-primary" id="add_user" href="{% url 'opinion_create' title %}">Add people opinion</a>
-
-<style>
-  .rows_opinions{
-    margin-top: 2rem;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, 20rem);
-  }
+<div class="main_div">
+  <style>
+    #add_user{
+      margin-top: 3rem;
+    }
+  </style>
+  <a class="btn btn-fill btn-primary" id="add_user" href="{% url 'opinion_create' title %}">Add people opinion</a>
   
-  #opinion{
-    width: 20rem;
-    height: 4rem;
-    text-align: center;
-  }
-</style>
-
-<div class="rows_opinions">
-  {% for opinion in opinions %}
-  <div class="card" id="opinion">
-    <a href="{% url 'opinion_view' title opinion.name %}">
-      <div class="card-body" >
-        <h3>{{opinion.name}}</h3>
-      </div>
-    </a>
+  <style>
+    .rows_opinions{
+      margin-top: 2rem;
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, 18rem);
+    }
+    
+    #opinion{
+      width: 18rem;
+      height: 4rem;
+      text-align: center;
+    }
+  </style>
+  
+  <div class="rows_opinions">
+    {% for opinion in opinions %}
+    <div class="card" id="opinion">
+      <a href="{% url 'opinion_view' title opinion.name %}">
+        <div class="card-body" >
+          <h3>{{opinion.name}}</h3>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
-
 
 {% endblock content %}
 

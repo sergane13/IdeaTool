@@ -12,11 +12,11 @@
     display: grid;
     justify-content: center;
     grid-column-gap: 1.6rem;
-    grid-template-columns: repeat(auto-fit, 48rem);
+    grid-template-columns: repeat(auto-fit, 32rem);
   }
   
   #idea{
-    width: 48rem;
+    width: 32rem;
     text-align: center;
   }
 
@@ -27,9 +27,9 @@
 
 <div class="rows_opinions">
   {% for field in temp %}
-  <div class="card" id="idea">
-    <div>
-      <a href="{% url 'idea_view' field.title %}">
+    <div class="card" id="idea">
+      <div>
+        <a href="{% url 'idea_view' field.title %}">
           <div class="card-body">
             <style>
               .information{
@@ -43,7 +43,7 @@
             
             <style>
               .description{
-                height: 3.2rem;
+                height: 6.2rem;
               }
             </style>
             <div class="description">
@@ -97,7 +97,7 @@
       
       <style>
         .delete_container{
-          margin-left: 46rem;
+          margin-left: 30rem;
           width: 2rem;
         }
       </style>
@@ -149,23 +149,7 @@
           </div>
         </div>
       </a>
-  
-      <style>
-        .status{
-          margin-left: 18rem;
-          margin-top: -1.9rem;
-          width: 12rem;
-          height: 1.9rem;
-          
-          border: transparent;
-          background-color: transparent;
-        }
-      </style>
-  
-      <button class="status" name="Status"> 
-        <h4>Status</h4>
-      </button>
-  </div>
+    </div>
 
   {% endfor %}
 </div>

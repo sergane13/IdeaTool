@@ -133,8 +133,10 @@ def idea_view(request, title):
 def idea_delete(request, title):
 
     idea = Idea.objects.get(title=title)
+    temp = Opinions.objects.filter(idea_opinion=idea)
 
     if request.method == 'POST':
+        temp.delete()
         idea.delete()
         return redirect('home')
 
@@ -179,7 +181,7 @@ def opinion_create(request, title):
                 opinion=description,
                 idea_opinion=opinion,
             )
-            return redirect('home')
+            return redirect('idea_form', title)
         elif name is '':
             messages.info(request, 'Opinion must have user')
         else:
@@ -207,7 +209,7 @@ def opinion_view(request, title, opinion):
 
         if form.is_valid() and not temp and name is not '':
             form.save()
-            return redirect('home')
+            return redirect('idea_view', title)
         elif name is '':
             messages.info(request, 'Opinion must have user')
         else:
