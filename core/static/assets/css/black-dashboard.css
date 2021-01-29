@@ -5177,9 +5177,6 @@ input[type="button"].btn-block {
   transition: all 0.2s ease-in-out;
 }
 
-.card:hover{
-  Transform:scale(1.02);
-}
 .card>hr {
   margin-right: 0;
   margin-left: 0;

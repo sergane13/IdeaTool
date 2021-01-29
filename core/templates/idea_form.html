@@ -33,33 +33,39 @@
   <style>
     .two{
       flex: 0 0 25%;
-      max-width: 48%;
+      max-width: 50%;
     }
   </style>
-  <div class="two px-md-1">
-    <div class="form-group">
-      <label>Description</label>
-      <h1> {{form.optimism_1|add_class:'form-control'}}</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="two px-md-1">
+        <div class="form-group">
+          <label>Description</label>
+          <h1> {{form.optimism_1|add_class:'form-control'}}</h1>
+        </div>
+      </div>
+    
+      <style>
+        .three{
+          flex: 0 0 25%;
+          max-width: 16%;
+        }
+    
+        .form-control *{
+          color: rgba(0, 0, 0, 0.8);
+        }
+    
+      </style>
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade</label>
+          <h1>{{form.optimism_1_grade|add_class:'form-control'}}</h1>
+        </div>
+      </div>
     </div>
   </div>
-
-  <style>
-    .three{
-      flex: 0 0 25%;
-      max-width: 16%;
-    }
-
-    .form-control *{
-      color: rgba(0, 0, 0, 0.8);
-    }
-
-  </style>
-  <div class="three px-md-1">
-    <div class="form-group">
-      <label>Grade (Description)</label>
-      <h1>{{form.optimism_1_grade|add_class:'form-control'}}</h1>
-    </div>
-  </div>
+  
   
   <style>
     .four{
@@ -81,74 +87,89 @@
     </div>
   </div>
 
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label>What problem do you wanna solve?</label>
-      <h1>  {{form.neutralism_1|add_class:'form-control'}} </h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>What problem do you wanna solve?</label>
+          <h1>  {{form.neutralism_1|add_class:'form-control'}} </h1>
+        </div>
+      </div>
+    
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade</label>
+          <h1> {{form.neutralism_1_grade|add_class:'form-control'}}</h1>
+        </div>
+      </div>
     </div>
   </div>
+  
 
-  <div class="three px-md-1">
-    <div class="form-group">
-      <label>Grade (What problem do you wanna solve?)</label>
-      <h1> {{form.neutralism_1_grade|add_class:'form-control'}}</h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>Who has this problem?</label>
+          <h1>  {{form.neutralism_2|add_class:'form-control'}} </h1>
+        </div>
+      </div>
+    
+      <style>
+        .five{
+          flex: 0 0 25%;
+          max-width: 16%;
+        }
+      </style>
+      <div class="five px-md-1">
+        <div class="form-group">
+          <label>Estimated number of people </label>
+          <h1>  {{form.neutralism_2_number|add_class:'form-control'}} </h1>
+        </div>
+      </div>
+    
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>Moments when this problem occur</label>
+          <h1>  {{form.neutralism_2_moments|add_class:'form-control'}} </h1>
+        </div>
+      </div>
+    
+      <div class="five px-md-1">
+        <div class="form-group">
+          <label>How often this idea occur? </label>
+          <h1>  {{form.neutralism_2_times|add_class:'form-control'}} </h1>
+        </div>
+      </div>
+    
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade</label>
+          <h1> {{form.neutralism_2_grade|add_class:'form-control'}} </h1>
+        </div>
+      </div>
     </div>
   </div>
+  
 
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label>Who has this problem? (#2)</label>
-      <h1>  {{form.neutralism_2|add_class:'form-control'}} </h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label> How important is the problem?</label>
+          <h1> {{form.neutralism_3|add_class:'form-control'}}</h1>
+        </div>
+      </div>
+    
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade</label>
+          <h1> {{form.neutralism_3_grade|add_class:'form-control'}}</h1>
+        </div>
+      </div>
     </div>
   </div>
-
-  <style>
-    .five{
-      flex: 0 0 25%;
-      max-width: 16%;
-    }
-  </style>
-  <div class="five px-md-1">
-    <div class="form-group">
-      <label>Estimated number of people (#2) </label>
-      <h1>  {{form.neutralism_2_number|add_class:'form-control'}} </h1>
-    </div>
-  </div>
-
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label>Moments when this problem occur (#2)</label>
-      <h1>  {{form.neutralism_2_moments|add_class:'form-control'}} </h1>
-    </div>
-  </div>
-
-  <div class="five px-md-1">
-    <div class="form-group">
-      <label>How often this idea occur? (#2)</label>
-      <h1>  {{form.neutralism_2_times|add_class:'form-control'}} </h1>
-    </div>
-  </div>
-
-  <div class="three px-md-1">
-    <div class="form-group">
-      <label>Grade (#2)</label>
-      <h1> {{form.neutralism_2_grade|add_class:'form-control'}} </h1>
-    </div>
-  </div>
-
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label> How important is the problem? (#3)</label>
-      <h1> {{form.neutralism_3|add_class:'form-control'}}</h1>
-    </div>
-  </div>
-
-  <div class="three px-md-1">
-    <div class="form-group">
-      <label>Grade (#3)</label>
-      <h1> {{form.neutralism_3_grade|add_class:'form-control'}}</h1>
-    </div>
-  </div>
+  
 
   <div class="four px-md-1">
     <div class="form-group">
@@ -157,35 +178,45 @@
     </div>
   </div>
 
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label>What is wrong with the idea? (#4)</label>
-      <h1> {{form.pessimism_1|add_class:'form-control'}}</h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>What is wrong with the idea?</label>
+          <h1> {{form.pessimism_1|add_class:'form-control'}}</h1>
+        </div>
+      </div>
+    
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade</label>
+          <h1> {{form.pessimism_1_grade|add_class:'form-control'}}</h1>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="three px-md-1">
-    <div class="form-group">
-      <label>Grade (#4) </label>
-      <h1> {{form.pessimism_1_grade|add_class:'form-control'}}</h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="four px-md-1">
+        <div class="form-group">
+          <label>What are the reasons for this idea to fail?</label>
+          <h1> {{form.pessimism_2|add_class:'form-control'}}</h1>
+        </div>
+      </div>
+    
+      <div class="three px-md-1">
+        <div class="form-group">
+          <label>Grade</label>
+          <h1> {{form.pessimism_2_grade|add_class:'form-control'}}</h1>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="four px-md-1">
-    <div class="form-group">
-      <label>What are the reasons for this idea to fail? (#5)</label>
-      <h1> {{form.pessimism_2|add_class:'form-control'}}</h1>
-    </div>
-  </div>
-
-  <div class="three px-md-1">
-    <div class="form-group">
-      <label>Grade (#5)</label>
-      <h1> {{form.pessimism_2_grade|add_class:'form-control'}}</h1>
-    </div>
-  </div>
+  
   <input class="btn btn-fill btn-primary" type="submit" value="Update">
 </form>
+
 
 <style>
   #add_user{
