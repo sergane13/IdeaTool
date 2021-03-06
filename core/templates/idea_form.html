@@ -286,6 +286,14 @@
       demo.initDashboardPageCharts();
 
     });
+
+    $('.form-control').on('input', function () {
+            this.style.height = 'auto';
+             
+            this.style.height = 
+                    (this.scrollHeight) + 'px';
+        });
+
   </script>
 
 {% endblock javascripts %}

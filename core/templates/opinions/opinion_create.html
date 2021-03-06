@@ -10,6 +10,60 @@
 
 <form action="" method="POST">
 
+    <style>
+        .form-control_2 {
+            display: block;
+            width: 100%;
+            height: calc(2.25rem + 2px);
+            padding: 0.5rem 0.7rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.428571;
+            color: rgba(255, 255, 255, 0.8);
+            background-color: transparent;
+            background-clip: padding-box;
+            border: 1px solid #2b3553;;
+            border-radius: 0.25rem;
+            box-shadow: none;
+            transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow: hidden;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+        .form-control_2 {
+            transition: none;
+        }
+        }
+
+        .form-control_2::-ms-expand {
+        background-color: transparent;
+        border: 0;
+        }
+
+        .form-control_2:focus {
+        color: rgba(255, 255, 255, 0.8);
+        border-color: var(--primary);
+        outline: 0;
+        box-shadow: none, none;
+        }
+
+        .form-control_2::placeholder {
+        color: #adb5bd;
+        opacity: 1;
+        }
+
+        .form-control_2:disabled,
+        .form-control_2[readonly] {
+        background-color: #e9ecef;
+        opacity: 1;
+        }
+
+        select.form-control_2:focus::-ms-value {
+        color: rgba(255, 255, 255, 0.8);
+        background-color: transparent;
+        }
+
+    </style>
     {% csrf_token %}
     <div class="card">
         <div class="card-body">
@@ -36,7 +90,7 @@
         <div class="four px-md-1">
             <div class="form-group">
             <label>Description </label>
-            <h1>  {{form.opinion|add_class:'form-control'}} </h1>
+            <h1>  {{form.opinion|add_class:'form-control_2'}} </h1>
             </div>
         </div>
         
